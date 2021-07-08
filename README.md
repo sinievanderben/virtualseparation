@@ -9,6 +9,8 @@ It contains:
 - Codes to generate images
 - ✨Deep learning using [pix2pix](https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix)✨
 
+The deep learning part is done through a different repository on Github. You can download the necessary files from there. 
+
 ## Structure
 
 - Experiment 1
@@ -17,7 +19,7 @@ It contains:
 - General files 
 - Others
 
-Images or dataset are sometimes called AB. This means that it contains images that are a combination of A (conditional input) and B(target output)
+Images or dataset are sometimes called AB. This means that it contains images that are a combination of A (conditional input) and B(target output). 
 
 ### Experiment 1
 Experiment 1 contains files related to separation of a nuclear (DAPI) and a membranal signal. 
@@ -27,9 +29,9 @@ Experiment 1 contains files related to separation of a nuclear (DAPI) and a memb
 - 3D
 - Other files 
 
-The Train set size folder contains the models trained on various train sets with a few example train sets (10.000, 15.000 and 20.000 images). Also the code to generate the test set for DAPI + mean membrane signal. 
+The Train set size folder contains the models trained on various train sets. Also the code to generate the test set for DAPI + mean membrane signal. 
 
-The Parameter folder contains models trained with different parameters
+The Parameter folder contains models trained with different parameters, such as different lambda values, adapted learning rate and a ResNet generator. 
 
 The 3D folder contains a used 3D stack and scripts used for the 3D metrics.
 
@@ -38,23 +40,20 @@ Other files are the test set used for the parameters.
 ### Experiment 2
 Experiment 2 contains files and folders related to separation of a different nuclear signal and a membranal signal. 
 
-- Dataset 4
-- Dataset 5
+- File to make images from PAX8+NCAM1 and SIX2+NCAM1
+- File to generate the whole kidney with PAX8 or SIX2 signal
 - Models 
 
-Dataset 4 is a set with the signal of PAX8+NCAM1 and Dataset 5 is a set with the signal of SIX2+NCAM1. The models contains the trained models for both datasets
-
-### Experiment 3
+### [Experiment 3](https://github.com/sinievanderben/VirtualSeparation-/tree/main/Experiment3)
 Experiment 3 contains files and folders related to separation of 2 nuclear signals and a membranal signal. 
 
-- Dataset 6
 - Models
 - Code to generate the set 
 
 ### General 
 The 'General' folder contains files used for multiple experiments, such as the coordinate finder and the metrics calculations.
 
-#### Get intensities
+#### [Get intensities](https://github.com/sinievanderben/VirtualSeparation-/blob/main/General/intensity_all_8_channels.py)
 The original dataset contains multiple layers with differing intensities. To find the intensities necessary to normalize pixel values a loop over all layers and all pixels was needed. 
 
 #### Get coordinates
@@ -77,35 +76,24 @@ This file outputs txt files with 'random' coordinates above a certain threshold 
 
 Other files to generate images depend on the output of this file. 
 
-#### Create images
-#### Split datasets
+#### [Make images](https://github.com/sinievanderben/VirtualSeparation-/blob/main/General/make_images.py)
+With the coordinate finder file you'll get txt files per layer with coordinates of images with signal. With this file you create the images reading the txt files. You do have to adjust [lines](https://github.com/sinievanderben/VirtualSeparation-/blob/main/General/make_images.py#L46) when using different signals, as the default is DAPI and the mean membrane signal
+
+#### [Split datasets](https://github.com/sinievanderben/VirtualSeparation-/blob/main/General/split_datasets_general.py)
 Sometimes images are directly outputted as combined AB images, but sometimes in separate sets of A and B. When this happens, they have to be combined and split into train, test and val. 
 
-#### Random generation of images 
-#### Generate dataset of the whole kidney 
-#### Pix2pix folder 
-Where all the deep learning magic happens. Not developed by me. 
+#### [Random](https://github.com/sinievanderben/VirtualSeparation-/blob/main/General/random_image_generation.py) generation of images 
+The first file 'make images' is to generate images from the txt files. This file is to generate random images from all over the kidney. 
+
+#### [Metrics](https://github.com/sinievanderben/VirtualSeparation-/blob/main/General/metrics.py)
+This is the file where the SSIM, the absolute error percentage and the Pearson correlation are calculated. There is also a separate [file](https://github.com/sinievanderben/VirtualSeparation-/blob/main/General/correlation_metric.py) for the Pearson correlation only
 
 ### Others
 Files that came in handy for tasks or are not part of the experiments (e.g. version of pix2pix to output numpy arrays). 
 
-## Tech
-
-Dillinger uses a number of open source projects to work properly:
-
-- [AngularJS] - HTML enhanced for web apps!
-- [Ace Editor] - awesome web-based text editor
-- [markdown-it] - Markdown parser done right. Fast and easy to extend.
-- [Twitter Bootstrap] - great UI boilerplate for modern web apps
-- [node.js] - evented I/O for the backend
-- [Express] - fast node.js network app framework [@tjholowaychuk]
-- [Gulp] - the streaming build system
-- [Breakdance](https://breakdance.github.io/breakdance/) - HTML
-to Markdown converter
-- [jQuery] - duh
-
-And of course Dillinger itself is open source with a [public repository][dill]
- on GitHub.
+- File to concatenate separate A and B images to an AB image
+- File to generate the whole kidney in images of 512 x 512
+- File to count how many images there are in a folder 
 
 ## Installation
 
@@ -119,8 +107,10 @@ conda env create -f environment.yml
 
 This creates an environment called 'virtsep'
 
+As said before, you also need to download the Github repository of the [pix2pix](https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix).
+
 ## Remarks
-Some datasets are way too large to download, such as images of the whole kidney or the dataset of 50.000 images. These can be found on the HPC.
+The datasets are not included in this repository. They are very large and Github was not happy to upload them. 
 
 
 ## License

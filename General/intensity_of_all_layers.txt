@@ -1,0 +1,17 @@
+dapi 99 percentile:  20013.0
+dapi 95 percentile:  15082.0
+ki67 99 percentile:  10202.0
+ki67 95 percentile:  6987.0
+pax8 99 percentile:  11968.0
+pax8 95 percentile:  7471.0
+ncam1 99 percentile:  22671.0
+ncam1 95 percentile:  13367.0
+six2 99 percentile:  16083.0
+six2 95 percentile:  10153.0
+chd1 99 percentile:  24504.0
+chd1 95 percentile:  12906.0
+chd6 99 percentile:  10892.0
+chd6 95 percentile:  7045.0
+factin 99 percentile:  10249.0
+factin 95 percentile:  6460.0
+
