@@ -44,7 +44,7 @@ Experiment 2 contains files and folders related to separation of a different nuc
 - File to generate the whole kidney with PAX8 or SIX2 signal
 - Models 
 
-### [Experiment 3](https://github.com/sinievanderben/VirtualSeparation-/tree/main/Experiment3)
+### [Experiment 3](https://github.com/sinievanderben/virtualseparation/tree/main/Experiment3)
 Experiment 3 contains files and folders related to separation of 2 nuclear signals and a membranal signal. 
 
 - Models
@@ -74,10 +74,10 @@ Inside the file you can adjust the threshold of minimum pixel value (link) or th
 
 This file outputs txt files with 'random' coordinates above a certain threshold for the signals of interest. One txt file per layer.  
 
-Other files to generate images depend on the output of this file. 
+Other files to generate images depend on the output of this file. I would advise to generate the coordinates with a shell script on the background. 
 
 #### [Make images](https://github.com/sinievanderben/virtualseparation/blob/main/General/make_images.py)
-With the coordinate finder file you'll get txt files per layer with coordinates of images with signal. With this file you create the images reading the txt files. You do have to adjust [lines](https://github.com/sinievanderben/virtualseparation/blob/main/General/make_images.py#L46) when using different signals, as the default is DAPI and the mean membrane signal
+With the coordinate finder file you'll get txt files per layer with coordinates of images with signal. With this file you create the images reading the txt files. You do have to adjust [lines](https://github.com/sinievanderben/virtualseparation/blob/main/General/make_images.py#L46) when using different signals, as the default is DAPI and the mean membrane signal. I would advise to do this with a shell script on the background. 
 
 #### [Split datasets](https://github.com/sinievanderben/virtualseparation/blob/main/General/split_datasets_general.py)
 Sometimes images are directly outputted as combined AB images, but sometimes in separate sets of A and B. When this happens, they have to be combined and split into train, test and val. 
