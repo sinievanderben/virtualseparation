@@ -53,7 +53,7 @@ Experiment 3 contains files and folders related to separation of 2 nuclear signa
 ### General 
 The 'General' folder contains files used for multiple experiments, such as the coordinate finder and the metrics calculations.
 
-#### [Get intensities](https://github.com/sinievanderben/VirtualSeparation-/blob/main/General/intensity_all_8_channels.py)
+#### [Get intensities](https://github.com/sinievanderben/virtualseparation/blob/main/General/intensity_all_8_channels.py)
 The original dataset contains multiple layers with differing intensities. To find the intensities necessary to normalize pixel values a loop over all layers and all pixels was needed. 
 
 #### Get coordinates
@@ -76,16 +76,16 @@ This file outputs txt files with 'random' coordinates above a certain threshold 
 
 Other files to generate images depend on the output of this file. 
 
-#### [Make images](https://github.com/sinievanderben/VirtualSeparation-/blob/main/General/make_images.py)
-With the coordinate finder file you'll get txt files per layer with coordinates of images with signal. With this file you create the images reading the txt files. You do have to adjust [lines](https://github.com/sinievanderben/VirtualSeparation-/blob/main/General/make_images.py#L46) when using different signals, as the default is DAPI and the mean membrane signal
+#### [Make images](https://github.com/sinievanderben/virtualseparation/blob/main/General/make_images.py)
+With the coordinate finder file you'll get txt files per layer with coordinates of images with signal. With this file you create the images reading the txt files. You do have to adjust [lines](https://github.com/sinievanderben/virtualseparation/blob/main/General/make_images.py#L46) when using different signals, as the default is DAPI and the mean membrane signal
 
-#### [Split datasets](https://github.com/sinievanderben/VirtualSeparation-/blob/main/General/split_datasets_general.py)
+#### [Split datasets](https://github.com/sinievanderben/virtualseparation/blob/main/General/split_datasets_general.py)
 Sometimes images are directly outputted as combined AB images, but sometimes in separate sets of A and B. When this happens, they have to be combined and split into train, test and val. 
 
-#### [Random](https://github.com/sinievanderben/VirtualSeparation-/blob/main/General/random_image_generation.py) generation of images 
+#### [Random](https://github.com/sinievanderben/virtualseparation/blob/main/General/random_image_generation.py) generation of images 
 The first file 'make images' is to generate images from the txt files. This file is to generate random images from all over the kidney. 
 
-#### [Metrics](https://github.com/sinievanderben/VirtualSeparation-/blob/main/General/metrics.py)
+#### [Metrics](https://github.com/sinievanderben/virtualseparation/blob/main/General/metrics.py)
 This is the file where the SSIM, the absolute error percentage and the Pearson correlation are calculated. There is also a separate [file](https://github.com/sinievanderben/VirtualSeparation-/blob/main/General/correlation_metric.py) for the Pearson correlation only
 
 ### Others
