@@ -35,20 +35,20 @@ The Parameter folder contains models trained with different parameters, such as 
 
 The 3D folder contains a used 3D stack and scripts used for the 3D metrics.
 
-Other files are the test set used for the parameters. 
+Other files are the scripts to generate a test set used for the parameters. One file generates a random test set and the other file a random test set with the additional constraint of [signal](https://github.com/sinievanderben/virtualseparation/blob/main/Experiment1/generate_testset_with_signal_constraint.py#L64). In the current version of both, every 10 images an image of nuclei or membrane only is added. This can be removed. 
 
 ### Experiment 2
 Experiment 2 contains files and folders related to separation of a different nuclear signal and a membranal signal. 
 
-- File to make images from PAX8+NCAM1 and SIX2+NCAM1
+- [File](https://github.com/sinievanderben/virtualseparation/blob/main/Experiment2/make_images_sixpax.py) to make images from PAX8+NCAM1 and SIX2+NCAM1. This also uses the txt output of the [coordinate file](https://github.com/sinievanderben/virtualseparation/blob/main/General/coordinate_finder_multiplemasks.py) from General
 - File to generate the whole kidney with PAX8 or SIX2 signal
 - Models 
 
 ### [Experiment 3](https://github.com/sinievanderben/virtualseparation/tree/main/Experiment3)
 Experiment 3 contains files and folders related to separation of 2 nuclear signals and a membranal signal. 
 
-- Models
-- Code to generate the set 
+- The model of PAX8, SIX2 and the mean membrane signal
+- Code to generate the set, which also uses the txt output of the coordinate file. 
 
 ### General 
 The 'General' folder contains files used for multiple experiments, such as the coordinate finder and the metrics calculations.
@@ -56,8 +56,8 @@ The 'General' folder contains files used for multiple experiments, such as the c
 #### [Get intensities](https://github.com/sinievanderben/virtualseparation/blob/main/General/intensity_all_8_channels.py)
 The original dataset contains multiple layers with differing intensities. To find the intensities necessary to normalize pixel values a loop over all layers and all pixels was needed. 
 
-#### Get coordinates
-Not all images were generated completely random, because in some cases certainty of signal was needed. This file calculates the mask of every layer of interest and generates a desired amount of coordinates of that layer with a minimum amount of signal. This file has a few parameters 
+#### [Get coordinates](https://github.com/sinievanderben/virtualseparation/blob/main/General/coordinate_finder_multiplemasks.py)
+Not all images were generated completely random, because in some cases certainty of signal was needed. This file calculates the mask of every layer of interest and generates a desired amount of coordinates of that layer with a minimum amount of signal. This file has a few parameters you have to specify. 
 
 ```sh
 "--data", "-d", help = "path to h5py file"
@@ -70,9 +70,9 @@ parser.add_argument("--image_size", "-is", default = 512, help="size of the imag
 
 Some remarks: 'names' have to be capitals. 
 
-Inside the file you can adjust the threshold of minimum pixel value (link) or the relative path within the h5 file (link). 
+Inside the file you can adjust the threshold of [minimum pixel value](https://github.com/sinievanderben/virtualseparation/blob/main/General/coordinate_finder_multiplemasks.py#L79)  or [the relative path within the h5 file](https://github.com/sinievanderben/virtualseparation/blob/main/General/coordinate_finder_multiplemasks.py#L176).
 
-This file outputs txt files with 'random' coordinates above a certain threshold for the signals of interest. One txt file per layer.  
+This file outputs txt files with 'random' coordinates above a certain [threshold](https://github.com/sinievanderben/virtualseparation/blob/main/General/coordinate_finder_multiplemasks.py#L176) for the signals of interest. One txt file per layer.  
 
 Other files to generate images depend on the output of this file. I would advise to generate the coordinates with a shell script on the background. 
 
@@ -111,10 +111,5 @@ As said before, you also need to download the Github repository of the [pix2pix]
 
 ## Remarks
 The datasets are not included in this repository. They are very large and Github was not happy to upload them. 
-
-
-## License
-
-MIT
 
 
