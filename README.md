@@ -29,7 +29,7 @@ Experiment 1 contains files related to separation of a nuclear (DAPI) and a memb
 - 3D
 - Other files 
 
-The Train set size folder contains the models trained on various train sets. Also the code to generate the test set for DAPI + mean membrane signal. 
+The Train set size folder contains the models trained on various train sets. Also a file to calculate the train time per model. 
 
 The Parameter folder contains models trained with different parameters, such as different lambda values, adapted learning rate and a ResNet generator. 
 
@@ -41,10 +41,10 @@ Other files are the scripts to generate a test set used for the parameters. One 
 Experiment 2 contains files and folders related to separation of a different nuclear signal and a membranal signal. 
 
 - [File](https://github.com/sinievanderben/virtualseparation/blob/main/Experiment2/make_images_sixpax.py) to make images from PAX8+NCAM1 and SIX2+NCAM1. This also uses the txt output of the [coordinate file](https://github.com/sinievanderben/virtualseparation/blob/main/General/coordinate_finder_multiplemasks.py) from General
-- File to generate the whole kidney with PAX8 or SIX2 signal
+- [File](https://github.com/sinievanderben/virtualseparation/blob/main/Experiment2/whole_kidney_paxncam.py) to generate the whole kidney with PAX8 or SIX2 signal
 - Models 
 
-### [Experiment 3](https://github.com/sinievanderben/virtualseparation/tree/main/Experiment3)
+### Experiment 3
 Experiment 3 contains files and folders related to separation of 2 nuclear signals and a membranal signal. 
 
 - The model of PAX8, SIX2 and the mean membrane signal
