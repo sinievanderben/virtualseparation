@@ -35,7 +35,7 @@ The Parameter folder contains models trained with different parameters, such as 
 
 The 3D folder contains a used 3D stack and scripts used for the 3D metrics.
 
-Other files are the scripts to generate a test set used for the parameters. One file generates a random test set and the other file a random test set with the additional constraint of [signal](https://github.com/sinievanderben/virtualseparation/blob/main/Experiment1/generate_testset_with_signal_constraint.py#L64). In the current version of both, every 10 images an image of nuclei or membrane only is added. This can be removed. 
+Other files are the scripts to generate a test set used for the parameters. One file generates a random test set and the other file a random test set with the additional constraint of [signal](https://github.com/sinievanderben/virtualseparation/blob/main/Experiment1/generate_testset_with_signal_constraint.py#L59). In the current version of both, every 10 images an image of nuclei or membrane only is added. This can be removed. 
 
 ### Experiment 2
 Experiment 2 contains files and folders related to separation of a different nuclear signal and a membranal signal. 
