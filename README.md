@@ -29,22 +29,22 @@ Experiment 1 contains files related to separation of a nuclear (DAPI) and a memb
 - 3D
 - Other files 
 
-The Train set size folder contains the models trained on various train sets. Also the code to generate the test set for DAPI + mean membrane signal. 
+The Train set size folder contains the models trained on various train sets. Also a file to calculate the train time per model. 
 
 The Parameter folder contains models trained with different parameters, such as different lambda values, adapted learning rate and a ResNet generator. 
 
 The 3D folder contains a used 3D stack and scripts used for the 3D metrics.
 
-Other files are the scripts to generate a test set used for the parameters. One file generates a random test set and the other file a random test set with the additional constraint of [signal](https://github.com/sinievanderben/virtualseparation/blob/main/Experiment1/generate_testset_with_signal_constraint.py#L64). In the current version of both, every 10 images an image of nuclei or membrane only is added. This can be removed. 
+Other files are the scripts to generate a test set used for the parameters. One file generates a random test set and the other file a random test set with the additional constraint of [signal](https://github.com/sinievanderben/virtualseparation/blob/main/Experiment1/generate_testset_with_signal_constraint.py#L59). In the current version of both, every 10 images an image of nuclei or membrane only is added. This can be removed. 
 
 ### Experiment 2
 Experiment 2 contains files and folders related to separation of a different nuclear signal and a membranal signal. 
 
 - [File](https://github.com/sinievanderben/virtualseparation/blob/main/Experiment2/make_images_sixpax.py) to make images from PAX8+NCAM1 and SIX2+NCAM1. This also uses the txt output of the [coordinate file](https://github.com/sinievanderben/virtualseparation/blob/main/General/coordinate_finder_multiplemasks.py) from General
-- File to generate the whole kidney with PAX8 or SIX2 signal
+- [File](https://github.com/sinievanderben/virtualseparation/blob/main/Experiment2/whole_kidney_paxncam.py) to generate the whole kidney with PAX8 or SIX2 signal
 - Models 
 
-### [Experiment 3](https://github.com/sinievanderben/virtualseparation/tree/main/Experiment3)
+### Experiment 3
 Experiment 3 contains files and folders related to separation of 2 nuclear signals and a membranal signal. 
 
 - The model of PAX8, SIX2 and the mean membrane signal
