@@ -3,21 +3,21 @@ import glob
 import os
 import torch 
 
-models = [r'E:\virtualseparation2\Experiment1\Trainsize\Models']
-parameterModels = r'E:\virtualseparation2\Experiment1\Parameters\Models'
+#models = [r'E:\virtualseparation2\Experiment1\Trainsize\Models']
+parameterModels = [r'E:\code\Experiment1\Parameters\Models']
 
-paxandsixModels = r'E:\virtualseparation2\Experiment2\Models'
+paxandsixModels = r'E:\code\Experiment2\Models'
 
 paxsixmeanModels = r'E:\virtualseparation2\Experiment3\Models'
 
-for i in models:
+for i in parameterModels:
     print(i)
     modelList = os.listdir(i)
     for j in modelList:
         place = i + '\\' + j 
         print(place)
         getObjects = os.listdir(place)
-        new_place = r'E:\virtualseparation\Experiment1\Trainsize\Models' + '\\' + j
+        new_place = r'E:\virtualseparation\Experiment1\Parameters\Models' + '\\' + j
         print(new_place)
         for x in getObjects:
             if x == 'latest_net_D.pth':
